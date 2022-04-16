@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet, Image, Text } from 'react-native';
-import { ucFirst } from '../utils'
+
 
 
 
@@ -22,7 +22,7 @@ const Gallery = ({ photos, onPhotoClick }) => {
                         />
 
                         <View style={styles.text}>
-                            <Text style={styles.description}>"{ucFirst(item.description || item.alt_description)}"</Text>
+                            <Text style={styles.description}>{item.description || item.alt_description}</Text>
                             <Text style={styles.author}>{`Author: ${item.user.name}`}</Text>
                             <Text style={styles.author}>{`Likes: ${item.likes}`}</Text>
                         </View>
@@ -67,14 +67,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.50)',
     },
     description: {
-        marginBottom: 20,
-        textAlign: 'center',
         fontSize: 16,
         color: "#ffffff",
+        fontWeight: "700",
     },
     author: {
-        fontSize: 14,
-        color: "#dbdbdb",
+        fontSize: 12,
+        color: "#ffffff",
     },
 });
 

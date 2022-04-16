@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { ActivityIndicator, View, ScrollView, StyleSheet, Image, Text } from 'react-native';
 import { Dimensions } from 'react-native';
-import { ucFirst } from '../utils';
 
 const PhotoScreen = ({ route }) => {
   const [loading, setLoading] = useState(true);
@@ -25,9 +24,15 @@ const PhotoScreen = ({ route }) => {
         </View>
 
         <View style={{ ...styles.text, maxWidth: win.width }}>
-          <Text style={styles.description}>{ucFirst(photo.description || photo.alt_description)}</Text>
-          <Text style={styles.author}>{`Author: ${photo.user.name}`}</Text>
-          <Text style={styles.author}>{`Likes: ${photo.likes}`}</Text>
+          <Text style={styles.description}>"{photo.description || photo.alt_description}"</Text>
+          <Text style={styles.author}>
+            <Text>{`Author: `}</Text>
+            <Text style={{ fontWeight: "bold" }}>{photo.user.name}</Text>
+          </Text>
+          <Text style={styles.author}>
+            <Text>{`Likes: `}</Text>
+            <Text style={{ fontWeight: "bold" }}>{photo.likes}</Text>
+          </Text>
         </View>
       </View>
     </ScrollView>
@@ -64,15 +69,13 @@ const styles = StyleSheet.create({
   },
   text: {
     width: '100%',
-    marginVertical: 40,
+    marginVertical: 20,
     paddingHorizontal: 16,
   },
   description: {
-    marginBottom: 16,
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: "700",
-    color: "#000000",
+    marginBottom: 36,
+    fontSize: 16,
+    color: "#666666",
   },
   author: {
     fontSize: 16,
